@@ -34,7 +34,9 @@ The new capability for my multi-set would be `craftRecipe()`. This feature would
 
 ## UML Diagram / Abstraction Boundary
 
-something
+![](MultiSetUMLDiagram.png)
+
+
 
 ## Trade-off Analysis
 

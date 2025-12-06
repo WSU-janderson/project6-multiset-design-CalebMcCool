@@ -36,15 +36,21 @@ The new capability for my multi-set would be `craftRecipe()`. This feature would
 
 ![](MultiSetUMLDiagram.png)
 
-
+The UML diagram of the inventory is shown above. The variable itemCount is required to keep track of the amount of items within the inventory so it can be returned in a faster amount of time O(1). The insert, remove, clear, and craftRecipe operations all return a bool to verify if the operation succeeded or not. The rest of the operations have return types which match the desired outcome of calling the function. 
 
 ## Trade-off Analysis
 
-something
+When looking into the other data structures used for the inventory, we can see several downsides. Specifically looking into the AVLTree data structure, the inventory system implemented in the way I explained earlier (linear), would not need an advanced data structure like the AVLTree. The AVLTree would be helpful when sorting items in a specific order, or comparing rarities of the items based on value. Since this inventory system is grown as you gain each item, it only makes sense to use a linear data structure rather than a tree-like data structure. 
+
+|                           | Sequence                                                     |                           AVL Tree                           |
+| ------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------: |
+| Pop() function            | The sequence data structure would easily be able to keep track of what the latest item inserted was and would be able to easily remove it by just going to the first element and removing it. This time complexity would be O(1). | The AVL Tree data structure would need to incorporate extra steps in order to find the last inserted item. The AVL Tree specializes in balanced order, not the order of insertion. The time complexity would be O(log n). |
+| Data Structure Complexity | The sequence data structure is simple and easy to implement into an existing video game as the inventory structure. | The AVL Tree is over complicated and performs un-required balances and rotations. There is no reason to be doing this with an inventory. |
+| Synax Additions           | The sequence data structure does not need excessive amounts of variables and things to keep track of. | The AVL Tree needs to keep track of left and right pointer as well as the height for each node, overcomplicating the process and involving more memory. |
 
 ## Alternative Design Sketch
 
-something
+If I were to utilize another data structure such as the AVL Tree, I would set things up in a different way. First, I would re-design the remove operation. I would need to remove the node when the quantity reaches 0 and rebalance the tree after doing so. Also, If I were to use the AVL Tree, I would change the contains operation and binary search the tree, which ultimately is faster than the sequence data structure with the AVL Tree performing it with a O(log n) time complexity. 
 
 ## Evaluation Plan
 

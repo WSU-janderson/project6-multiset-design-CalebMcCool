@@ -40,7 +40,7 @@ The UML diagram of the inventory is shown above. The variable itemCount is requi
 
 ## Trade-off Analysis
 
-When looking into the other data structures used for the inventory, we can see several downsides. Specifically looking into the AVLTree data structure, the inventory system implemented in the way I explained earlier (linear), would not need an advanced data structure like the AVLTree. The AVLTree would be helpful when sorting items in a specific order, or comparing rarities of the items based on value. Since this inventory system is grown as you gain each item, it only makes sense to use a linear data structure rather than a tree-like data structure. 
+When looking into the other data structures used for the inventory, we can see several downsides. Specifically looking into the AVLTree data structure, the inventory system implemented in the way I explained earlier (linear), would not need an advanced data structure like the AVLTree. This would be perfect for a linked list "in searching for a singly linked list, there is only one way to search through it that is linear searching" [1]. The AVLTree would be helpful when sorting items in a specific order, or comparing rarities of the items based on value. Since this inventory system is grown as you gain each item, it only makes sense to use a linear data structure rather than a tree-like data structure. 
 
 |                           | Sequence                                                     |                           AVL Tree                           |
 | ------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------: |
@@ -54,9 +54,20 @@ If I were to utilize another data structure such as the AVL Tree, I would set th
 
 ## Evaluation Plan
 
-something
+If this design were implemented I would test it by first starting with a light load of input's (1 or 3 items), to make sure all of the functions are working correctly. I would start by inserting a few items, then checking their existence with the contains() function, then removing the item and seeing if the sequence stays in tact and correct (stays linear). After this, I would test it on a large load of inputs (200 or so items), and test a large amount of function iterations to make sure the runtime stays consistent and nothing breaks. This sequence will be able to adapt to new features because the sequence is a class with variables and methods which are able to be implemented if another function were created within the class. All of these functions and variables are able to be used which already exist within the sequence class. 
 
 ## Conclusion / Reflection
 
-something
+This design is strong and effective because when you are looking at a linear inventory setup, the linked list (sequence) is the most logical answer to implement. The sequence itself is linear, grows only when a user picks up a new item, and has flexibility if there were any additions to the structure itself such as a new function. 
 
+## Sources
+
+[1] A. A Alnoshan Hessah, “Evaluation the Performance of Data Structures: A Comparative Approach,” *International Journal of Science and Research (IJSR)*, vol. 12, no. 8, pp. 880–885, Aug. 2023, doi: https://doi.org/10.21275/sr23807001651.
+
+[2] GeeksforGeeks, “C++ Program to Implement AVL Tree,” *GeeksforGeeks*, Jul. 15, 2024. https://www.geeksforgeeks.org/cpp/cpp-program-to-implement-avl-tree/
+
+
+
+‌
+
+‌
